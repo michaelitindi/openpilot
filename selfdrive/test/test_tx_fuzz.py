@@ -1,4 +1,5 @@
-from selfdrive.car.interfaces import CarInterface
+
+from selfdrive.car.body.interface import CarInterface
 from selfdrive.test.helpers import with_processes
 
 @with_processes
