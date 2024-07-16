@@ -61,7 +61,10 @@ jobs:
       run: |
         cd $STRIPPED_DIR
         ${{ env.RUN }} "release/check-dirty.sh && \
-                        MAX_EXAMPLES=5 $PYTEST -m 'not slow' selfdrive/car"
+        MAX_EXAMPLES=5 $PYTEST -m 'not slow' selfdrive/car && \
+        python selfdrive/test/test_tx_fuzz.py toyota && \
+        python selfdrive/test/test_tx_fuzz.py honda && \
+        python selfdrive/test/test_tx_fuzz.py hyundai"
     - name: pre-commit
       timeout-minutes: 3
       run: |
